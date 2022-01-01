@@ -1,0 +1,27 @@
+image: hello-docker:latest
+stages:
+        - build:
+        - test:
+        - deploy:
+before_script:
+        - echo "From the before script"
+after_script:  
+        - echo "From the after script"
+build step 1:
+        stage: build
+        script:
+                - echo "From build step1"
+        tags:
+                - test
+test step 1:
+        stage: test
+        script:
+                - echo "from test step1"
+        tags:
+                - test
+deploy:
+        stage: deploy
+        script:
+                - echo "I am deploying"
+        tags:
+                - test
